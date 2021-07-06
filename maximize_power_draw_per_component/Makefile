@@ -1,0 +1,3 @@
+
+eatmemory:
+    gcc eatmemory.c
