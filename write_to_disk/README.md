@@ -16,12 +16,14 @@ sudo hdparm -T /dev/sda
 
 ====== dd ======
 
-https://www.thomas-krenn.com/en/wiki/Linux_I/O_Performance_Tests_using_dd
+<https://www.thomas-krenn.com/en/wiki/Linux_I/O_Performance_Tests_using_dd>
 "So that I/O performance measurements will not be affected by these caches (temporary memory), the oflag parameter can be used."
 
+```bash
 time dd if=/dev/zero of=dat.img bs=1024 count=0 seek=1024
 
 time dd if=/dev/urandom of=dat.img bs=1 count=0 seek=$[1024*1024*1024]
+```
 —> 1GB takes 2.3 seconds
 
 http://www.stevefortuna.com/check-disk-speed-quickly-and-easily-in-linux/
@@ -32,14 +34,17 @@ dd if=test of=/dev/null bs=1048576
 
 ====== file copy ======
 
-vi file.txt
+```bash
+cat file.txt
   hello
   world
-  
+```
+
+```bash
 cp file.txt orig.txt
 n=3
 for i in {1..$n}; do cat file.txt file.txt > file2.txt && mv file2.txt file.txt; done
-
+```
 
 == monitoring disk activity ==
 
